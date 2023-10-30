@@ -1,0 +1,118 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  position: relative;
+  width: 370px;
+  height: 260px;
+  margin: 20px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.box img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(-90deg);
+  transition: opacity 0.3s, transform 0.6s;
+}
+
+.box:hover img {
+  transform: rotateX(90deg);
+}
+
+.box:hover .overlay {
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+
+.overlay h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.overlay p{
+  font-size: 14px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+
+
+.box:hover .overlay h3,
+.box:hover .overlay p{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media only screen and(max-width: 410px) {
+  .title h2 {
+    font-size: 36px;
+  }
+
+  .box {
+    width: 330px;
+    height: 230px;
+  }
+
+  .overlay h3 {
+    font-size: 22px;
+  }
+
+  .overlay p {
+    font-size: 12px;
+  }
+
+}
